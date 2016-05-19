@@ -4,10 +4,13 @@
 
 ## 安装：
 
-.vimrc下，添加如下行：
+.vimrc下，添加如下行（假设使用vim包管理工具Vundle）：
 
 ```vim
+call vundle#begin()
+...
 Plugin 'sarrow104/simple-cmake.vim.git'
+call vundle#end()
 ```
 
 ## 使用
@@ -16,7 +19,7 @@ Plugin 'sarrow104/simple-cmake.vim.git'
 :GenCMakeSimple
 ```
 
-即会在当前文件所在目录位置，生成两个文件CMakeLists.txt和Makefile；此时，使用：
+即会在当前工作路径（:h getcwd()）下，生成两个文件CMakeLists.txt和Makefile；此时，使用：
 
 ```vim
 :make
@@ -30,4 +33,17 @@ Plugin 'sarrow104/simple-cmake.vim.git'
 
 可执行文件，将以当前文件夹名为名字；至于中间文件，都在./Release或者./Debug文件夹下面；
 
+----------------------------------------------------------------------
+
+默认会枚举当前路径下所有cpp文件为程序源码；若需要自定义工程，
+
+```vim
+:e CMakeLists.txt
+```
+
+即可；
+
+----------------------------------------------------------------------
+
 祝使用愉快！
+
